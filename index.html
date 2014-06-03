@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Composing a Functional Community</title>
+
+		<meta name="description" content="Erlang User Conference Keynote Presentation">
+		<meta name="author" content="Katie Miller">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+        <style> 
+            .iframe-top { z-index: 2; position: absolute; left: 550px; top: 80px; }
+            .pic-top { z-index: 2; position: absolute; left: 62px; top: 90px; }
+            .monad-shirt { z-index: 2; position: absolute; left: 260px; }
+            .squiggle { position: absolute; z-index: 2; top: 0; left: 0; width: 1028px; height: 763px; }
+            .def-diversity { position: absolute; z-index: 2; top: -310px; left: 0; width: 1027px; height: 766px; }
+            blockquote { color: white; }
+            .blockspacer { margin-top: 70px !important; }
+            blockquote:before { display: block; padding-left: 10px; content: "\201C"; font-size: 200px; color: white; position: absolute; left: -60px; top: -10px; }
+            .hidden { visibility: hidden; }
+            a.quotelink:link, a.quotelink:active, a.quotelink:visited { color: #778785 !important; }
+        </style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+                <section>
+				    <section>
+					    <h1>Composing a Functional Community</h1>
+                        <img src="images/lambdalove.png" width="350px"/>
+                        <p>Katie Miller (<a href="http://twitter.com/codemiller" target="_blank">@codemiller</a>)</br>
+                                         <a href="http://openshift.com" target="_blank">OpenShift</a> Developer Advocate at <a href="http://redhat.com" target="_blank">Red Hat</a></p>
+				    </section>
+                    <section>
+                        <img src="images/refactoring.gif" width="700px"/>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Let's Write Some Code</h3>
+                        <img src="images/laptopdog.jpg" width="700px"/>
+                    </section>
+                    <section>
+                        <h3>Retrospective</h3>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <div>
+                            <h3>Composing a Functional Community</h3>
+                            <div style="position: absolute; z-index: 2; top: -305px; left: -10px;">
+                                <div class="fragment squiggle"><img src="images/title-a.png"</div>
+                                <div class="fragment squiggle"><img src="images/title-community.png"</div>
+                                <div class="fragment squiggle"><img src="images/title-functional.png"</div>
+                                <div class="fragment squiggle"><img src="images/title-composing.png"</div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Key Idea</h3>
+                        <p><strong>All of us</strong> are responsible </br>for sharing the lambda love </br>in an <strong>effective</strong> way </br>to help compose </br>a <strong>bigger, more diverse</strong> </br>functional programming </br>community</p> 
+                        <div style="position: fixed; z-index: -1; left: 90px; top: -40px;"><img src="images/lightbulb.svg" style="width: 750px; opacity: 0.8"/></div>
+                    </section>
+                    <section>
+                        <h3>Outline</h3>
+                        <ul>
+                            <li class="fragment">Background</li>
+                            <li class="fragment">Problem/Motivation</li>
+                            <li class="fragment">Solution Structure: Inputs, Outputs, Method</li>
+                            <li class="fragment">Testing</li>
+                        </ul>    
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Background</h3>
+                        <img src="images/australiameme1.jpg" style="width: 350px; vertical-align: top;"/>
+                        <img src="images/australiameme2.jpg" style="width: 350px; vertical-align: top;"/>
+                        <img src="images/australiameme3.jpg" style="width: 350px; vertical-align: top;"/>
+                        <img src="images/australiameme4.jpg" style="width: 350px; vertical-align: top;"/>
+                    </section>
+                    <section>
+                        <h3>Who I Am</h3>
+                        <ul>
+                            <li>Australian</li>
+                            <li class="hidden">Former journalist</li>
+                            <li class="hidden">Haskell fan</li>
+                            <li class="hidden">Active participant in many language communities</li>
+                            <li class="hidden">OpenShift Developer Advocate at Red Hat</li>
+                            <li class="hidden">Co-Founder of Lambda Ladies</li>
+                            <li class="hidden">Co-Organiser of the Brisbane Functional Programming Group</li>
+                            <li class="hidden">A woman</li>
+                        </ul>    
+                    </section>
+                    <section>
+                        <img src="images/bearkoala.png"/>
+                    </section>
+                    <section>
+                        <h3>Who I Am</h3>
+                        <ul>
+                            <li>Australian</li>
+                            <li class="fragment">Former journalist</li>
+                            <li class="hidden">Haskell fan</li>
+                            <li class="hidden">Active participant in many language communities</li>
+                            <li class="hidden">OpenShift Developer Advocate at Red Hat</li>
+                            <li class="hidden">Co-Founder of Lambda Ladies</li>
+                            <li class="hidden">Co-Organiser of the Brisbane Functional Programming Group</li>
+                            <li class="hidden">A woman</li>
+                        </ul>    
+                    </section>
+                    <section>
+                        <a href="http://www.codemiller.com/blog/2013/07/06/functional-frock-a-dress-fit-for-a-lambda-lady/" target="blank"><div style="width: 650px"><img src="images/haskellcode.jpg" style="border: black 1px solid;"/></div><div style="width: 384px; z-index: 2; position: absolute; left: 600px; top: -590px;"><img src="images/haskelldress.jpg" style="border: black 1px solid;"/></div></a>
+                    </section>
+                    <section>
+                        <h3>Who I Am</h3>
+                        <ul>
+                            <li>Australian</li>
+                            <li>Former journalist</li>
+                            <li>Haskell fan</li>
+                            <li class="fragment">Active participant in many language communities</li>
+                            <li class="fragment"><a href="http://www.openshift.com" target="_blank">OpenShift</a> Developer Advocate at Red Hat</li>
+                            <li class="fragment">Co-Founder of <a href="http://www.lambdaladies.com" target="_blank">Lambda Ladies</a></li>
+                            <li class="fragment">Co-Organiser of the <a href="http://bfpg.org" target="_blank">Brisbane Functional Programming Group</a></li>
+                            <li class="fragment">A woman</li>
+                        </ul>    
+                    </section>
+                    <section>
+                        <h3>What I Am Not</h3>
+                        <ul>
+                            <li class="fragment">Representing the opinions of all Lambda Ladies, female programmers, or women</li>
+                            <li class="hidden">An expert on diversity/community building</li>
+                        </ul>    
+                    </section>
+                    <section>
+                        <img src="images/xkcdgirls.png" width="700px"/>
+                        <div style="position: absolute; z-index: 2; font-size: 14px; top: 390px; left: 700px;">Source: <a href="http://xkcd.com/385/" target="_blank">http://xkcd.com/385/</a></div>
+                    </section>
+                    <section>
+                        <h3>What I Am Not</h3>
+                        <ul>
+                            <li>Representing the opinions of all Lambda Ladies, female programmers, or women</li>
+                            <li>An expert on diversity/community building</li>
+                        </ul>    
+                    </section>
+                    <section>
+                        <div><h2>Let's Start a <strong>Conversation</strong></h2></div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Problem/Motivation</h3>
+                        <img src="images/catandmouse.jpg" width="600px"/>
+                    </section>
+                    <section>
+                        <h3>Problem #1: Community Size</h3>
+                        <img src="images/dogpack.jpg" width="700px"/>
+                    </section>
+                    <section>
+                        <h3>Why Growth Matters</h3>
+                    </section>
+                    <section>
+                        <h3>Problem #2: Community Diversity</h3>
+                        <img src="images/catsanddogs.jpg"/>
+                    </section>
+                    <section>
+                        <h3>Defining Diversity</h3>
+                        <div class="fragment def-diversity"><img src="images/definingdiversity.png"/></div>
+                    </section>
+                    <section>
+                        <h3>Unconscious Bias</h3>
+                    </section>
+                    <section>
+                        <h3>Women in IT: Some Facts</h3>
+                        <ul>
+                            <li class="fragment">In 1985, <a href="http://www.ncwit.org/sites/default/files/legacy/pdf/BytheNumbers09.pdf" target="_blank"><strong>37 per cent</strong> of US computer science undergrad degrees were awarded to women</a>, compared with <strong>18 per cent</strong> in 2010</li>
+                            <li class="fragment">In 1987, <a href="http://thestoryexchange.org/analysis-women-programming/" target="_blank"><strong>42 per cent</strong> of US software developers were women</a>; today, it's around <strong>28 per cent</strong></li>
+                            <li class="fragment">Representation of women in open source <a href="http://www.ncwit.org/resources/culture-open-source-computing" target="_blank">could be as low as <strong>1.5 per cent</strong></a></li>
+                            <li class="fragment">Of Google's global technical workforce, <a href="http://googleblog.blogspot.com.au/2014/05/getting-to-work-on-diversity-at-google.html" target="_blank"><strong>17 per cent</strong> are women</a></li>
+                            <li class="fragment">More women are leaving the industry than men; <a href="http://www.ncwit.org/resources/women-it-facts" target="_blank"><strong>41 per cent</strong> of technical women are gone after 10 years and <strong>56 per cent</strong> after 10 to 20</a>, more than double the 'quit rate' for men</a></li>
+                            <li class="fragment">There is <a href="http://www.ams.org/notices/201201/rtx120100010p.pdf" target="_blank">no biological reason</a> why women should perform worse than men at mathematical tasks</li>
+                        </ul>    
+                    </section>
+                    <section>
+                        <h3>Women in FP</h3>
+                    </section>
+                    <section data-background="#005e1c">
+                        <blockquote><strong>Women are definitely underrepresented in FP</strong> compared to programming in general, based on my personal observations at FP conferences in Europe and the US, as well as local communities </br>across Europe.</blockquote>
+                    </section>
+                    <section data-background="#002c74">
+                        <blockquote>I attended one of the London [FP language] meetups a couple weeks back, and out of about 100 attendees I think I may have been <strong>the only woman present</strong>. I've never actually felt acutely out of place in an FP community until then.</blockquote>
+                    </section>
+                    <section data-background="#290053">
+                        <blockquote>[In] the Erlang community, in which I know <strong>there is a vast under-representation of women</strong>...</blockquote>
+                    </section>
+                      <section>
+                        <h3>Why Diversity Matters</h3>
+                    </section>
+                    <section>
+                        <h3>Driving Innovation</h3>
+                        <span class="fragment fade-out" data-fragment-index="2">
+                            <span class="fragment" data-fragment-index="1" style="vertical-align: top;"><img src="images/campjs1.jpg"/></span>
+                        </span>
+                        <span class="hidden" style="vertical-align: top;"><img src="images/campjs2.jpg"/></span>
+                        <span class="fragment pic-top" data-fragment-index="2" style="vertical-align: top;"><img src="images/campjs2.jpg"/></span>
+                        <div class="fragment iframe-top" data-fragment-index="3"><iframe src="http://gameoflights-katiemiller.rhcloud.com" width="800" height="600"></iframe></div>
+                    </section>
+                    <section>
+                        <h3>Why We Might Have This Problem</h3>
+                    </section>
+                    <section>
+                        <h3>#1: FP's Negative Image</h3>
+                    </section>
+                    <section data-background="#005e1c">
+                        <blockquote>The functional programming community is </br><strong>deeply academic</strong></blockquote>
+                        <blockquote class="blockspacer">[I]n many FP communities there's a strong </br>vein of <strong>elitism</strong></blockquote>
+                        <blockquote class="blockspacer">[I]t can give a sense of protectiveness, <strong>clubhouse-style</strong></blockquote>
+                        <blockquote class="blockspacer">It seems to create a culture of <strong>intellectual territoriality</strong>, and it's unfriendly to outsiders</blockquote>
+                    </section>
+                    <section data-background="#290053">
+                        <blockquote>[T]he functional programmer stereotypes are pretty unappealing to women - <strong>the whole neckbeard/beard thing</strong>. I think it's harder for people to identify with that sort of culture.</blockquote>
+                        <blockquote class="blockspacer">[S]ince FP tends to be sold in a <strong>hyper-intellectualized</strong> manner, this evokes the 'math is hard' brand of anti-intellectualism. ... [I]t has a <strong>differentially powerful impact on women</strong> due to the way we gender the sciences. That is, FP propaganda has a habit of taking the things which cause women to be underrepresented in STEM generally, and then cranking them up to eleven.</blockquote>
+                    </section>
+                    <section>
+                        <div><img src="images/monadtshirt.jpg"/></div>
+                    </section>
+                    <section>
+                        <h3>#2: Community Can Be Unwelcoming</h3>
+                    </section>
+                    <section data-background="#002c74">
+                        <blockquote>They [FP meetup members] seemed to pride themselves on not even trying to make the titles of the talks accessible and kind of saw that as <strong>a barrier to entry that they wanted</strong></blockquote>
+                        <blockquote class="blockspacer">[There were] no women there. That was bizarre and made me feel <strong>very uncomfortable</strong>. I'd go to conferences, and, literally, <strong>no one would talk to me</strong> unless I was very forward and grabbed </br>people's attention.</blockquote>
+                    </section>
+                    <section data-background="#005e1c">
+                        <blockquote>There's simply always too much showing off and <strong>never enough treating people with respect</strong>.</blockquote>
+                        <blockquote class="blockspacer">Countless monad jokes were told. To be honest, I felt pretty conflicted after that evening. On one hand, I really enjoyed the talks; on the other, <strong>I felt completely disassociated with the community itself</strong>.</blockquote>
+                    </section>
+                      <section>
+                        <h3>#3: Lack of Support for Learners</h3>
+                    </section>
+                    <section data-background="#290053">
+                        <blockquote>They are <strong>not welcoming or encouraging to beginners</strong>. Despite what many of them say, they are the nerdiest of the nerds and on some level they want to keep it that way.</blockquote>
+                    </section>
+                    <section data-background="#002c74">
+                        <blockquote>If my story is anything to go by, <strong>it takes a lot of privilege (and luck)</strong> just to get to the point where you discover FP. After that, then you add on all the issues about maintaining community involvement.</blockquote>
+                        <blockquote class="blockspacer">Most of the inroads seem to be academic and require a great deal of proactiveness (which takes confidence) and the <strong>privilege for someone to be willing to mentor you</strong>.</blockquote>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Structure of a Solution</h3>
+                        <img src="images/noideadog.jpg"/>    
+                    </section>
+                   <section>
+                        <h3>Inputs</h3>
+                        <ul>
+                            <li class="fragment">Those who have never programmed</li>
+                            <li class="fragment">Programmers not yet exposed to FP</li>
+                            <li class="fragment">Members of the FP community</br>(and those who may have left)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Inputs: We're All Responsible For Change</h3>
+                        <img src="images/cardboardcrackonsexism.gif"/>    
+                    </section>
+                     <section>
+                        <h3>Outputs</h3>
+                        <a href="http://www.foundanimals.org/photos/image/76-brown-and-white-kitten-playing-soccer/" target="_blank"><img src="images/soccerkitten.jpg"/>    </a>
+                    </section>
+                    <section>
+                        <h3>Outputs</h3>
+                        <ul>
+                            <li class="fragment">More functional programmers</li>
+                            <li class="fragment">More people in FP from different backgrounds</li>
+                            <li class="fragment">Happy FP community members</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Method</h3>
+                        <img src="images/mousetrapcat.jpg" width="600px"/>
+                    </section>
+                    <section>
+                        <h3>My Story</h3>
+                    </section>
+                     <section>
+                        <h3>#1: Education Providing Motivation</h3>
+                        <img src="images/teacherspet.jpg"/>    
+                    </section>
+                    <section>
+                        <h3>#1: Education - Inputs</h3>
+                        <ul>
+                            <li class="fragment">Beginners</li>
+                            <li class="fragment">Underrepresented groups</li>
+                            <li class="hidden">Other programming communities</li>
+                        </ul>
+                    </section>
+                    <section data-background="#290053">
+                        <blockquote>I think a lot of people are scared of functional programming and that's definitely a barrier. I definitely think it was helpful that women were specifically invited. ... I feel like I have a decent grasp on monads now, and I'm wondering what all the fuss is about!</blockquote>
+                    </section>
+                    <section>
+                        <h3>#1: Education - Inputs</h3>
+                        <ul>
+                            <li>Beginners</li>
+                            <li>Underrepresented groups</li>
+                            <li>Other programming communities</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>#1: Education - Outputs</h3>
+                        <ul>
+                            <li class="fragment">Achieved learning goals</li>
+                            <li class="fragment">Motivation to continue learning</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>#1: Education - Method</h3>
+                        <ul>
+                            <li class="fragment">Curricula/pedagogy</li>
+                            <li class="fragment">Language choice</li>
+                            <li class="fragment">Tools</li>
+                            <li class="fragment">Focused events</li>
+                            <li class="fragment">Onboarding</li>
+                            <li class="fragment">Positive approach</li>
+                        </ul>
+                    </section>
+                    <section data-background="#005e1c">
+                        <blockquote>Not starting with <a class="quotelink" href="https://twitter.com/pomke/statuses/470446410807013376" target="_blank">all your languages suck</a> </br>was pretty compelling</blockquote>
+                    </section>
+                    <section>
+                        <h3>#2: Creating Safe Spaces</h3>
+                        <img src="images/cathiding.jpg" width="650px"/>    
+                    </section>
+                    <section>
+                        <h3>The Role of <a href="http://www.lambdaladies.com" target="_blank">Lambda Ladies</a></h3>
+                    </section>
+                    <section data-background="#290053">
+                        <blockquote>It's a space where <strong>you don't always have to be on your guard</strong> against harassment. It's a space where you don't have to worry about how you present yourself, don't have to worry that femininity will undermine your credibility, don't have to worry about how asking 'stupid' questions will affect the way people think of women as a whole.</blockquote>
+                       <blockquote class="blockspacer">Just <strong>seeing other women is energizing</strong>, and keeps me interested in being out there as part of the general </br>FP community.</blockquote>
+                    </section>
+                    <section data-background="#005e1c">
+                        <blockquote>Understand that women create their own spaces to create tech because all <strong>the existing tech spaces are for men</strong> *by default*.</blockquote>
+                        <blockquote class="blockspacer">It makes me feel <strong>less isolated</strong>.</blockquote>
+                        <blockquote class="blockspacer">Women's groups, ultimately, are not insular; they exist to strengthen members' resolve so that women can both achieve individual success and <strong>bring progress to the programming community as a whole</strong>.</blockquote>
+                    </section>
+                    <section>
+                        <h3>#2: Safe Spaces - Inputs/Outputs</h3>
+                        <ul>
+                            <li class="fragment"><strong>Inputs: </strong>Those who may not otherwise participate, everyone in the community to make it a safer space as a whole</li>
+                            <li class="hidden"><strong>Outputs: </strong>Secure community members who can focus on FP itself</li>
+                        </ul>
+                    </section>
+                    <section data-background="#002c74">
+                        <blockquote>They [men] seem to feel powerless to do anything about the state of affairs, and yet, they have power: they can let men who make these comments know that sexism isn't okay. ... Countering sexism requires courage and moral stamina. It is work that largely needs to be done by men...</blockquote>
+                        <p style="text-align: right; padding-right: 150px;"><a class="quotelink" href="http://geekfeminism.org/2012/09/17/how-to-exclude-women-without-really-trying/" target="_blank">- Tim Chevalier</a></p>
+                    </section>
+                    <section>
+                        <h3>#2: Safe Spaces - Inputs/Outputs</h3>
+                        <ul>
+                            <li><strong>Inputs: </strong>Those who may not otherwise participate, everyone in the community to make it a safer space as a whole</li>
+                            <li><strong>Outputs: </strong>Secure community members who can focus on FP itself</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>#2: Safe Spaces - Method</h3>
+                        <ul>
+                            <li class="fragment">Codes of conduct</li>
+                            <li class="fragment">Inclusive language</li>
+                            <li class="fragment"><a href="http://conway.rutgers.edu/~ccshan/wiki/blog/posts/haskell2013/" target="_blank">Haskell Symposium Chair Report 2013</a>:</br> speak up, listen, support one another, take care of ourselves</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>#3: Mentoring</h3>
+                        <img src="images/mentordog.jpg" height="620px"/>    
+                    </section>
+                    <section>
+                        <h3>#3: Mentoring</h3>
+                        <ul>
+                            <li class="fragment"><strong>Inputs: </strong>Anyone one step ahead</li>
+                            <li class="fragment"><strong>Outputs: </strong> Mentees become mentors</li>
+                            <li class="fragment"><strong>Method: </strong> Friendly, encouraging, </br>and willing to truly listen</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>More Method Ideas</h3>
+                    </section>
+                    <section data-background="#005e1c">
+                        <blockquote>Setting up communities which aren't so hyper-intellectualized is a big step. Getting rid of all that propaganda and just treating FP like any other paradigm...it's probably the easiest thing we can tackle.</blockquote>
+                        <blockquote class="blockspacer">Get more women featured on YouTube series such as Numberphile, Computerphile, haskellcast, and Microsoft's Channel 9</blockquote>
+                        <blockquote class="blockspacer">Outreach, training, scholarships for conferences</blockquote>
+                    </section>
+                    <section data-background="#290053">
+                        <blockquote>Educate everyone...about the ways that tech culture enforces power dynamics that disadvantage people who are female, trans, not white, poor, disabled, queer, etc.</blockquote>
+                        <blockquote class="blockspacer">[R]each out to organizations that focus on improving the experiences of women, people of color, and those who are LGBTQAI. ...[S]eek advice regarding codes of conduct, marketing, and other aspects.</blockquote>
+                        <blockquote class="blockspacer">If we can get a more open discussion of the phenomenon, we can change it</blockquote>
+                    </section>
+                </section> 
+                <section>
+                    <section>
+                        <h3>Testing</h3>
+                        <img src="images/orangutantesting.jpg"/>    
+                    </section>
+                    <section>
+                        <h3>Testing Ideas</h3>
+                        <ul>
+                            <li class="fragment">FP community survey</li>
+                            <li class="fragment">Assessment of teaching tools and their effectiveness with beginners</li>
+                            <li class="fragment">Inviting comment from outside the community</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Conclusion</h3>
+                        <div class="fragment" style="padding-top: 30px; padding-left: 340px;"><iframe src="http://newgameoflights-katiemiller.rhcloud.com" width="800" height="600"></iframe></div> 
+                    </section>
+                 </section>
+                <section>
+                    <section>
+                        <h3>References, Resources, and Credits</h3>
+                        <img src="images/bookpuppy.jpg" width="700px"/>
+                    </section>
+                    <section>
+                        <h3>References</h3>
+                        <ul style="font-size: 70%; line-height: 1em;">
+                            <li><a href="http://www.seas.upenn.edu/~eas285/Readings/Pears_SurveyTeachingIntroProgramming.pdf" target="_blank">A Survey of Literature on the Teaching of Introductory Programming, Arnold Pears et al., 2007</a></li>
+                            <li><a href="http://web.cs.unlv.edu/stefika/Papers.php" target="_blank">An Empirical Investigation into Programming Language Syntax, Andreas Stefik and Susanna Siebert, 2013</a></li>
+                            <li><a href="http://www.ams.org/notices/201201/rtx120100010p.pdf" target="_blank">Debunking Myths About Gender and Mathematics Performance, Kane and Mertz, 2012</a></li>
+                            <li><a href="http://images.forbes.com/forbesinsights/StudyPDFs/Innovation_Through_Diversity.pdf" target="_blank">Fostering Innovation Through a Diverse Workforce, Forbes Insights</a></li>
+                            <li><a href="http://programming.oreilly.com/2014/04/fun-functional-and-teachable.html" target="_blank">Fun, functional, and teachable?, Interview with Dave Thomas</a></li>
+                            <li><a href="http://googleblog.blogspot.com.au/2014/05/getting-to-work-on-diversity-at-google.html" target="_blank">Getting To Work on Diversity at Google. 2014</a></li>
+                            <li><a href="http://conway.rutgers.edu/~ccshan/wiki/blog/posts/haskell2013/" target="_blank">Haskell Symposium Program Chair Report, 2013</a></li>
+                            <li><a href="http://hbr.org/2013/12/how-diversity-can-drive-innovation/ar/1" target="_blank">How Diversity Can Drive Innovation, Sylvia Ann Hewlett et al., 2013</a></li>
+                            <li><a href="http://geekfeminism.org/2012/09/17/how-to-exclude-women-without-really-trying/" target="_blank">How To Exclude Women Without Really Trying, Tim Chevalier, 2012</a></li>
+                            <li><a href="http://www.ashedryden.com/blog/increasing-diversity-at-your-conference" target="_blank">Increasing Diversity At Your Conference, Ashe Dryden, 2013</a></li>
+                            <li><a href="http://www.pnas.org/content/109/41/16474.full" target="_blank">Science Faculty's Subtle Gender Biases Favor Male Students, Moss-Racusin et al., 2012</a></li>
+                            <li><a href="http://careers.stackoverflow.com/jobs" target="_blank">StackOverflow Jobs</a></li>
+                            <li><a href="http://cs.brown.edu/~sk/Publications/Papers/Published/fffk-ts-project-journal/paper.pdf" target="_blank">The TeachScheme! Project: Computing and Programming for Every Student, Matthias Felleisen et al., 2003</a></li>
+                            <li><a href="http://www.ncwit.org/sites/default/files/legacy/pdf/BytheNumbers09.pdf" target="_blank">Women and IT: By The Numbers, NCWIT, 2012</a></li>
+                            <li><a href="http://www.ncwit.org/resources/women-it-facts" target="_blank"> Women in IT: The Facts, NCWIT, 2009</a></li>
+                            <li><a href="http://thestoryexchange.org/analysis-women-programming" target="_blank">Women in Tech: Scarcity, Sexism and Solutions, Jen Heilemann, 2013</a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Reading and Resources</h3>
+                        <ul style="font-size: 80%; line-height: 1em;">
+                            <li><a href="http://aboutfeminism.me" target="_blank">About Feminism: Tech Women Manifesto</a></li>
+                            <li><a href="http://geekfeminism.wikia.com" target="_blank">Geek Feminism Wiki</a></li>
+                            <li><a href="http://lindseykuper.livejournal.com/418854.html" target="_blank">Humanity or GTFO, Lindsey Kuper, 2013</a></li>
+                            <li><a href="http://www.lambdaladies.com" target="_blank">Lambda Ladies</a></li>
+                            <li><a href="http://www.learningunlimitedllc.com/wp-content/uploads/2014/01/Marzanos-9-Effective-Instructional-Strategies-@tysonkimberly2.png" target="_blank">Marzano's Nine Effective Instructional Strategies</a></li>
+                            <li><a href="http://modelviewculture.com/" target="_blank">Model View Culture</a></li>
+                            <li><a href="http://github.com/nicta/course" target="_blank">NICTA Course Repository</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=65GXtGAYxm8" target="_blank">Programming Diversity, Ashe Dryden, 2014</a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Image Credits</h3>
+                        <ul style="font-size: 80%; line-height: 1em;">
+                            <li><a href="https://www.flickr.com/photos/claresnow/6058538570" target="_blank">Book Puppy [cropped] (Clare Snow, </a><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode" target="_blank">CC BY-NC-SA 2.0)</a></li>
+                            <li><a href="http://cardboard-crack.com/post/80131321528/sexism" target="_blank">Cardboard Crack: Sexism</a></li>
+                            <li><a href="https://www.flickr.com/photos/cloud_nine/15354825" target="_blank">Cat and Mouse [cropped] (cloud_nine, </a><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode" target="_blank">CC BY-NC-SA 2.0)</a></li>
+                            <li><a href="https://www.flickr.com/photos/jfchenier/2046424891" target="_blank">Cat Hiding [cropped] (Jean-François Chénier, </a><a href    ="http://creativecommons.org/licenses/by-nc/2.0/legalcode" target="_blank">CC BY-NC 2.0)</a></li>
+                            <li><a href="https://www.flickr.com/photos/raneko/3184229367" target="_blank">Cats and Dogs [cropped] (raneko, </a><a href="http://creativecommons.org/licenses/by/2.0/legalcode" target="_blank">CC BY 2.0)</a></li>
+                            <li><a href="https://www.flickr.com/photos/australianshepherds/3212875937" target="_blank">Dog Pack [cropped] (carterse, </a><a href="http://creativecommons.org/licenses/by-sa/2.0/legalcode" target="_blank">CC BY-SA 2.0)</a></li>
+                            <li><a href="https://www.flickr.com/photos/konszvi/4218539270" target="_blank">Laptop Dog [cropped] (Anat Reisner/Zvi Cons, </a><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode" target="_blank">CC BY-NC-SA 2.0)</a></li>
+                            <li><a href="https://www.flickr.com/photos/glsims99/3343253756/in/photostream/" target="_blank">Mouse Trap Cat [cropped] (Glenda Sims, </a><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode" target="_blank">CC BY-NC-SA 2.0)</a></li>
+                            <li><a href="https://www.flickr.com/photos/nancyb/5846036112/in/photostream/" target="_blank">Mentor Dog [cropped] (tailsandfur, </a><a href    ="http://creativecommons.org/licenses/by-nc/2.0/legalcode" target="_blank">CC BY-NC 2.0)</a></li>
+                            <li><a href="http://openclipart.org" target="_blank">Open Clip Art Library</a></li>
+                            <li><a href="https://www.flickr.com/photos/shankaronline/11464153034" target="_blank">Orangutan Testing [cropped] (Shankar S., </a><a href="http://creativecommons.org/licenses/by/2.0/legalcode" target="_blank">CC BY 2.0)</a></li>
+                            <li><a href="https://www.flickr.com/photos/foundanimalsfoundation/8469463664" target="_blank">Soccer Kitten [cropped] (</a><a href="http://www.foundanimals.org/photos/image/76-brown-and-white-kitten-playing-soccer/" target="_blank">Found Animals Foundation, </a><a href="http://creativecommons.org/licenses/by-sa/2.0/legalcode" target="_blank">CC BY-SA 2.0)</a></li>
+                            <li><a href="http://xkcd.com/385/" target="_blank">XKCD: How It Works</a></li>
+                            <li><a href="http://www.zazzle.com.au/monad_shirt-235133473927904318" target="_blank">Zazzle.com.au: Monad T-Shirt</a></li>
+                        </ul>
+                    </section>
+                </section>
+ 				<section>
+				    <h2>Composing a Functional Community</h2>
+                    <img src="images/lambdalove.png" width="300px"/>
+                    <h3><a href="http://community.codemiller.com">http://community.codemiller.com</a></h3>
+                    <p>Katie Miller (<a href="http://twitter.com/codemiller" target="_blank">@codemiller</a>)</br>
+                                     <a href="http://openshift.com" target="_blank">OpenShift</a> Developer Advocate at <a href="http://redhat.com" target="_blank">Red Hat</a></p>
+				</section>
+ 
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
